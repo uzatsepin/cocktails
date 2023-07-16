@@ -6,6 +6,7 @@ export const useRootStore = defineStore('root', {
   state: () => ({
     ingredients: [],
     cocktails: [],
+    ingredient: null,
   }),
   actions: {
     async getIngredients() {
@@ -17,6 +18,9 @@ export const useRootStore = defineStore('root', {
         `${COCKTAILS_BY_INGREDIENT_URL}${ingredient}`
       )
       this.cocktails = data?.data?.drinks
+    },
+    setIngredient(val) {
+      this.ingredient = val
     },
   },
 })
