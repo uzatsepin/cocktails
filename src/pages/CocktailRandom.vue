@@ -1,6 +1,8 @@
 <script setup></script>
 
-<template>CocktailRandom</template>
+<template>
+    CocktailRandom
+</template>
 
 <style lang="sass" scoped>
 @import '../assets/styles/main.sass'

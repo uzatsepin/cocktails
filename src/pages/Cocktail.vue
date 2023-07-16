@@ -38,24 +38,18 @@ getCocktail()
 </script>
 
 <template>
-  <div
-    v-if="cocktail"
-    class="wrap"
-  >
-    <AppLayout
-      :imgUrl="`${cocktail.strDrinkThumb}`"
-      :backFunc="goBack"
-    >
+  <div v-if="cocktail"
+       class="wrap">
+    <AppLayout :imgUrl="`${cocktail.strDrinkThumb}`"
+               :backFunc="goBack">
       <div class="wrapper">
         <div class="info">
           <div class="title">{{ cocktail.strDrink }}</div>
           <div class="line"></div>
           <div class="list">
-            <div
-              v-for="(item, key) in ingredients"
-              :key="key"
-              class="list-item"
-            >
+            <div v-for="(item, key) in ingredients"
+                 :key="key"
+                 class="list-item">
               {{ item.name }}
               <template v-if="item.measure">
                 |

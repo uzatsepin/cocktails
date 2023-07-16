@@ -10,11 +10,9 @@ const props = defineProps({
 <template>
   <div class="root">
     <RouterLink :to="`/cocktails/${cocktail.idDrink}`">
-      <img
-        :src="cocktail.strDrinkThumb"
-        alt=""
-        class="pic"
-      />
+      <img :src="cocktail.strDrinkThumb"
+           alt=""
+           class="pic" />
     </RouterLink>
     <div class="name">{{ cocktail.strDrink }}</div>
   </div>

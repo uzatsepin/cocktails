@@ -18,20 +18,16 @@ const props = defineProps({
 
 <template>
   <div class="root">
-    <div
-      class="img"
-      :style="`background-image: url(${imgUrl})`"
-    ></div>
+    <div class="img"
+         :style="`background-image: url(${imgUrl})`"></div>
     <div class="main">
       <div class="btns">
-        <el-button
-          v-if="isBackButtonVisible"
-          type="primary"
-          :icon="Back"
-          circle
-          class="back"
-          @click="backFunc"
-        />
+        <el-button v-if="isBackButtonVisible"
+                   type="primary"
+                   :icon="Back"
+                   circle
+                   class="back"
+                   @click="backFunc" />
         <el-button class="btn">Get Random Cocktail</el-button>
       </div>
       <slot></slot>
