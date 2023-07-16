@@ -1,20 +1,42 @@
 <script setup>
+import { Back } from '@element-plus/icons-vue'
 const props = defineProps({
-    imgUrl: {
-        type: String,
-        required: true,
-    },
+  imgUrl: {
+    type: String,
+    required: true,
+  },
+  backFunc: {
+    type: Function,
+    required: true,
+  },
+  isBackButtonVisible: {
+    type: Boolean,
+    default: true,
+  },
 })
 </script>
 
 <template>
-    <div class="root">
-        <div class="img" :style="`background-image: url(${imgUrl})`"></div>
-        <div class="main">
-            <el-button class="btn">Get Random Cocktail</el-button>
-            <slot></slot>
-        </div>
+  <div class="root">
+    <div
+      class="img"
+      :style="`background-image: url(${imgUrl})`"
+    ></div>
+    <div class="main">
+      <div class="btns">
+        <el-button
+          v-if="isBackButtonVisible"
+          type="primary"
+          :icon="Back"
+          circle
+          class="back"
+          @click="backFunc"
+        />
+        <el-button class="btn">Get Random Cocktail</el-button>
+      </div>
+      <slot></slot>
     </div>
+  </div>
 </template>
 
 <style lang="sass" scoped>
@@ -24,7 +46,7 @@ const props = defineProps({
     background-color: $background
     min-height: 100vh
 
-.img 
+.img
   width: 50%
   background-repeat: no-repeat
   background-position: 50% 50%
@@ -42,9 +64,19 @@ const props = defineProps({
     border-color: $accent
     color: $text
     font-size: 16px
-    &:hover 
+    &:hover
         background-color: darken($accent, 10%)
     &:active
         background-color: darken($accent, 10%)
+.btns
+    display: flex
+    align-items: center
+    justify-content: space-between
 
+.back
+    background-color: transparent
+    border-color: #fff
+    transition: all 250ms ease-out
+    &:hover
+        border-color: $accent
 </style>
